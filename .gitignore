@@ -1,0 +1,24 @@
+# environment
+.env
+.env.local
+
+# virtual environments
+venv/
+.venv/
+env/
+
+# python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# mac
+.DS_Store
+
+# editors
+.vscode/
+.idea/
+*.swp
+*.swo
