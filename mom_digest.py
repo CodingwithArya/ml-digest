@@ -266,7 +266,7 @@ def build_html(sections_data, total, date_str):
 <div style="max-width:580px; margin:0 auto; background:#ffffff; padding:40px 36px; border-radius:8px;">
 
     <div style="margin-bottom:32px; padding-bottom:24px; border-bottom:2px solid #e2e8f0;">
-        <div style="font-size:22px; font-weight:700; color:#0f172a; margin-bottom:4px;">Daily Digest</div>
+        <div style="font-size:22px; font-weight:700; color:#0f172a; margin-bottom:4px;">Mom's Daily Digest</div>
         <div style="font-size:13px; color:#64748b;">{date_str} &nbsp;·&nbsp; {total} links</div>
         <div style="margin-top:12px; font-size:12px; color:#94a3b8; line-height:1.8;">
             <span style="color:#2563eb; font-weight:600;">read</span> → open in browser &nbsp;
@@ -324,7 +324,7 @@ def main():
     ]
 
     html = build_html(sections_data, total, date_str)
-    send_email(f"Daily Digest — {datetime.now().strftime('%b %d')}", html)
+    send_email(f"Mom's Daily Digest — {datetime.now().strftime('%b %d')}", html)
     print(f"Done. {total} links.")
 
 if __name__ == "__main__":
