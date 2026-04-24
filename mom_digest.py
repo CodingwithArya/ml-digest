@@ -28,58 +28,53 @@ MOM_EMAIL_TO       = os.getenv("MOM_EMAIL_TO")   # add this line to your .env
 # ─── KEYWORDS ──────────────────────────────────────────────────────────────────
 
 ANALYTICS_KEYWORDS = [
-    # core tools she uses
-    "sql", "tableau", "power bi", "excel", "databricks", "snowflake",
-    "dbt", "looker", "data visualization", "dashboard", "reporting",
-    # data roles + skills
-    "data analyst", "business analyst", "financial analyst", "data engineer",
-    "data warehouse", "etl", "data pipeline", "data quality", "data governance",
-    "data lakehouse", "spark", "python analytics", "pandas", "jupyter",
-    # analytics practice
-    "kpi", "metrics", "business intelligence", "bi tool", "self-serve analytics",
-    "a/b test", "experiment", "cohort analysis", "funnel analysis",
-    "predictive analytics", "forecasting", "regression", "statistical analysis",
-    "customer analytics", "revenue analytics", "financial modeling",
-    # ai in analytics specifically
-    "ai analytics", "llm analytics", "natural language to sql", "text to sql",
-    "ai dashboard", "automated reporting", "ai insights",
+    # tools she actually uses day to day
+    "sql", "tableau", "power bi", "snowflake", "databricks",
+    "dbt", "looker", "data visualization", "dashboard",
+    "python", "pandas", "numpy", "matplotlib", "seaborn",
+    "jupyter", "data science", "machine learning basics",
+    "data analyst", "business analyst", "financial analyst",
+    "data warehouse", "business intelligence",
+    "predictive analytics", "forecasting", "financial modeling",
+    "reporting", "metrics", "kpi",
+    # trends in the data industry worth knowing about
+    "future of data", "data stack", "modern data stack",
+    "analyst role", "data skills", "data career",
 ]
 
 AI_BUSINESS_KEYWORDS = [
-    # how companies use ai
-    "enterprise ai", "ai adoption", "ai strategy", "ai transformation",
-    "ai productivity", "ai copilot", "microsoft copilot", "github copilot",
-    "ai workflow", "ai automation", "robotic process automation",
-    "ai customer service", "ai support", "ai operations",
-    # specific company ai moves
-    "amazon ai", "aws ai", "google ai", "microsoft ai", "salesforce ai",
-    "adobe ai", "servicenow ai", "workday ai", "oracle ai",
-    "ai feature", "ai product", "ai launch", "ai integration",
-    # trends
-    "generative ai business", "llm enterprise", "ai use case",
-    "ai return on investment", "ai roi", "ai cost savings",
-    "responsible ai", "ai policy", "ai regulation", "ai governance",
-    "ai hiring", "ai jobs", "ai skills", "reskilling", "upskilling",
+    # big picture AI trends — what's happening, not how to use it
+    "ai trend", "ai adoption", "ai strategy", "state of ai",
+    "generative ai", "large language model", "foundation model",
+    "ai regulation", "ai policy", "ai governance", "ai act",
+    "ai impact", "ai workforce", "ai jobs", "future of work",
+    # big companies making AI moves
+    "microsoft ai", "google ai", "amazon ai", "apple ai", "meta ai",
+    "openai", "anthropic", "nvidia", "salesforce ai",
+    "ai partnership", "ai deal", "ai acquisition",
+    "chatgpt", "gemini", "copilot", "claude",
+    # what's actually changing
+    "ai replacing", "ai disruption", "ai transformation",
+    "enterprise ai", "ai rollout", "ai deployment",
 ]
 
 FINANCE_KEYWORDS = [
-    # revenue + financials
-    "ai revenue", "ai profit", "ai loss", "ai earnings", "quarterly earnings",
-    "ai valuation", "ai funding", "ai investment", "venture capital ai",
-    "series a", "series b", "series c", "funding round",
-    # specific companies to track
-    "openai revenue", "anthropic funding", "mistral", "cohere",
-    "scale ai", "databricks", "hugging face", "inflection",
-    "nvidia earnings", "nvidia revenue", "nvidia ai",
-    "microsoft earnings", "google earnings", "amazon earnings", "meta earnings",
-    # ipos + market
-    "ai ipo", "ipo 2025", "ipo 2026", "going public", "spac",
-    "ai startup", "unicorn", "ai valuation",
-    "profitable", "profitability", "burn rate", "runway",
-    "ai market size", "ai spending", "ai investment",
-    # macro
-    "tech layoffs", "tech hiring", "colorado tech", "denver tech",
-    "data analyst salary", "data analyst jobs", "analyst hiring",
+    # big company earnings — exact phrases from earnings coverage
+    "earnings", "quarterly earnings", "quarterly results", "q1", "q2", "q3", "q4",
+    "revenue", "revenue growth", "net income", "net loss", "operating income",
+    "beats expectations", "misses expectations", "guidance",
+    "microsoft earnings", "google earnings", "alphabet earnings",
+    "amazon earnings", "meta earnings", "nvidia earnings",
+    "apple earnings", "tesla earnings", "salesforce earnings",
+    # ai-specific financials
+    "ai revenue", "cloud revenue", "aws revenue", "azure revenue",
+    "google cloud", "ai investment", "capex", "data center",
+    "ai spending", "ai infrastructure",
+    # ipos + startups going public
+    "ipo", "going public", "s-1 filing", "direct listing",
+    "profitable", "profitability", "burn rate", "path to profit",
+    "openai valuation", "anthropic valuation", "ai unicorn",
+    "funding round", "raised", "billion",
 ]
 
 # ─── SOURCES ───────────────────────────────────────────────────────────────────
@@ -93,6 +88,8 @@ ANALYTICS_SOURCES = [
     {"name": "Practical SQL",         "url": "https://blog.sqlauthority.com/feed/"},
     {"name": "Tableau Blog",          "url": "https://www.tableau.com/blog/rss"},
     {"name": "Databricks Blog",       "url": "https://www.databricks.com/blog/feed"},
+    {"name": "Real Python",           "url": "https://realpython.com/atom.xml"},
+    {"name": "PyData Blog",           "url": "https://pydata.org/feed/"},
 ]
 
 AI_BUSINESS_SOURCES = [
@@ -102,17 +99,19 @@ AI_BUSINESS_SOURCES = [
     {"name": "The Verge AI",          "url": "https://www.theverge.com/ai-artificial-intelligence/rss/index.xml"},
     {"name": "Wired AI",              "url": "https://www.wired.com/feed/tag/ai/rss"},
     {"name": "One Useful Thing",      "url": "https://www.oneusefulthing.org/feed"},
-    {"name": "Import AI",             "url": "https://jack-clark.net/feed/"},
+    {"name": "The Batch (DeepLearning.AI)", "url": "https://www.deeplearning.ai/the-batch/rss/"},
 ]
 
 FINANCE_SOURCES = [
-    {"name": "TechCrunch",            "url": "https://techcrunch.com/feed/"},
-    {"name": "Bloomberg Technology",  "url": "https://feeds.bloomberg.com/technology/news.rss"},
-    {"name": "Reuters Technology",    "url": "https://feeds.reuters.com/reuters/technologyNews"},
-    {"name": "The Information",       "url": "https://www.theinformation.com/feed"},
-    {"name": "Stratechery",           "url": "https://stratechery.com/feed/"},
-    {"name": "Crunchbase News",       "url": "https://news.crunchbase.com/feed/"},
-    {"name": "PitchBook News",        "url": "https://pitchbook.com/news/rss"},
+    # best free sources for AI financial news
+    {"name": "TechCrunch",            "url": "https://techcrunch.com/feed/"},          # funding rounds, IPOs
+    {"name": "TechCrunch Startups",   "url": "https://techcrunch.com/category/startups/feed/"},
+    {"name": "Reuters Technology",    "url": "https://feeds.reuters.com/reuters/technologyNews"},  # earnings
+    {"name": "Crunchbase News",       "url": "https://news.crunchbase.com/feed/"},     # funding + valuations
+    {"name": "Stratechery",           "url": "https://stratechery.com/feed/"},         # deep business analysis
+    {"name": "Import AI",             "url": "https://jack-clark.net/feed/"},          # AI industry money moves
+    {"name": "The Batch (DeepLearning.AI)", "url": "https://www.deeplearning.ai/the-batch/rss/"},  # weekly AI biz news
+    {"name": "Hacker News",           "url": "https://hnrss.org/frontpage"},           # breaks funding/IPO news fast
 ]
 
 # ─── READ/PODCAST/SKIM TAGS ────────────────────────────────────────────────────
