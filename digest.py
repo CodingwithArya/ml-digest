@@ -31,6 +31,9 @@ GMAIL_USER = os.getenv("GMAIL_USER")
 GMAIL_APP_PASSWORD = os.getenv("GMAIL_APP_PASSWORD")
 EMAIL_TO = os.getenv("EMAIL_TO")
 
+NEWS_KEYWORDS = [
+    "breaking", "latest", "today", "report", "says", "new",
+]
 RESEARCH_KEYWORDS = [
     "earable", "earables", "in-ear", "wearable assistant", "proactive agent",
     "interrupt timing", "interruption detection", "turn-taking", "barge-in",
@@ -105,6 +108,35 @@ INDUSTRY_KEYWORDS = [
     "model release", "new model", "launch", "announced",
     "open source", "open-source", "weights released",
     "speech model", "audio model", "agent framework",
+]
+
+NEWS_SOURCES = [
+    {"name": "AP News",              "url": "https://feeds.apnews.com/rss/topnews"},
+    {"name": "Reuters",              "url": "https://feeds.reuters.com/reuters/topNews"},
+    {"name": "BBC News",             "url": "http://feeds.bbci.co.uk/news/rss.xml"},
+    {"name": "The Guardian",         "url": "https://www.theguardian.com/world/rss"},
+    {"name": "Al Jazeera",           "url": "https://www.aljazeera.com/xml/rss/all.xml"},
+    {"name": "NPR News",             "url": "https://feeds.npr.org/1001/rss.xml"},
+    {"name": "PBS NewsHour",         "url": "https://www.pbs.org/newshour/feeds/rss/headlines"},
+    {"name": "Financial Times",      "url": "https://www.ft.com/rss/home"},
+    {"name": "The Economist",        "url": "https://www.economist.com/latest/rss.xml"},
+    {"name": "WSJ World News",       "url": "https://feeds.a.dj.com/rss/RSSWorldNews.xml"},
+    {"name": "WSJ US Business",      "url": "https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml"},
+    {"name": "Bloomberg Markets",    "url": "https://feeds.bloomberg.com/markets/news.rss"},
+    {"name": "Politico",             "url": "https://rss.politico.com/politics-news.xml"},
+    {"name": "The Hill",             "url": "https://thehill.com/rss/syndicator/19110"},
+    {"name": "NYT Science",          "url": "https://rss.nytimes.com/services/xml/rss/nyt/Science.xml"},
+    {"name": "The Atlantic",         "url": "https://www.theatlantic.com/feed/all/"},
+    {"name": "Hacker News",          "url": "https://hnrss.org/frontpage"},
+    {"name": "Reddit r/worldnews",   "url": "https://www.reddit.com/r/worldnews/.rss"},
+    {"name": "Axios",                "url": "https://www.axios.com/feed/"},
+    {"name": "Vox",                  "url": "https://www.vox.com/rss/index.xml"},
+    {"name": "ProPublica",           "url": "https://feeds.propublica.org/main"},
+    {"name": "The New York Times",   "url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"},
+    {"name": "Financial Times",      "url": "https://www.ft.com/rss/home"},
+    {"name": "The Economist",        "url": "https://www.economist.com/latest/rss.xml"},
+    {"name": "WSJ World News",       "url": "https://feeds.a.dj.com/rss/RSSWorldNews.xml"},
+    {"name": "Axios",                "url": "https://www.axios.com/feed/"},
 ]
 
 RESEARCH_SOURCES = [
@@ -388,6 +420,8 @@ def send_email(subject, html):
 def main():
     print(f"\n🔍 ML Digest — {datetime.now().strftime('%Y-%m-%d %H:%M')}\n")
 
+    print("  Fetching top news...")
+    n_raw = fetch_section(NEWS_SOURCES, NEWS_KEYWORDS)
     print("  Fetching research...")
     r_raw  = fetch_section(RESEARCH_SOURCES, RESEARCH_KEYWORDS)
     print("  Fetching ML/AI...")
@@ -397,19 +431,21 @@ def main():
     print("  Fetching industry...")
     i_raw  = fetch_section(INDUSTRY_SOURCES, INDUSTRY_KEYWORDS)
 
+    news  = top_n_deduped(n_raw, 4, min_score=0)  # min_score=0 so always show smt
     research = top_n_deduped(r_raw,  2, min_score=1)
     ml       = top_n_deduped(ml_raw, 3, min_score=1)
     security = top_n_deduped(s_raw,  2, min_score=1)
     industry = top_n_deduped(i_raw,  2, min_score=1)
 
-    total = len(research) + len(ml) + len(security) + len(industry)
+    total = len(news) + len(research) + len(ml) + len(security) + len(industry)
     date_str = datetime.now().strftime("%B %d, %Y")
 
     sections_data = [
+        ("📰", "Top News", news),
         ("🎙️", "Your Research", research),
-        ("🤖", "ML & AI",       ml),
+        ("🤖", "ML & AI", ml),
         ("🔐", "Security & Systems", security),
-        ("📡", "Industry",      industry),
+        ("📡", "Industry", industry),
     ]
     footer_line = random.choice(FOOTERS)
     html = build_html(sections_data, total, date_str, footer_line)
