@@ -74,6 +74,10 @@ ML_KEYWORDS = [
     "benchmark", "evaluation", "human evaluation",
     "inter-annotator agreement", "inter-rater reliability",
     "safety", "alignment", "interpretability", "mechanistic",
+    "transformer", "attention", "diffusion", "diffusion model", "flow matching",
+    "moe", "mixture of experts", "sparse", "state space model", "mamba",
+    "vision transformer", "vit", "clip", "multimodal", "retrieval augmented generation",
+    "speculative decoding", "token prediction", "sequence length", "context window",
 ]
 
 SECURITY_KEYWORDS = [
@@ -155,6 +159,8 @@ ML_SOURCES = [
     {"name": "Chip Huyen",        "url": "https://huyenchip.com/feed.xml"},
     {"name": "Eugene Yan",        "url": "https://eugeneyan.com/rss/"},
     {"name": "One Useful Thing",  "url": "https://www.oneusefulthing.org/feed"},
+    {"name": "Papers With Code",     "url": "https://paperswithcode.com/latest/rss"},
+    {"name": "arXiv ML Architecture","url": "https://arxiv.org/rss/cs.LG"},
 ]
 
 SECURITY_SOURCES = [
@@ -178,6 +184,7 @@ INDUSTRY_SOURCES = [
 READ_SOURCES = {
     "arXiv Speech", "arXiv NLP", "arXiv AI", "arXiv ML",
     "arXiv Security", "BAIR Blog", "CMU ML Blog", "Google Research",
+    "Papers With Code",
 }
 PODCAST_SOURCES = {
     "Interconnects", "Ahead of AI", "Import AI", "Pragmatic Engineer",
