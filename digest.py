@@ -79,12 +79,12 @@ ML_KEYWORDS = [
 SECURITY_KEYWORDS = [
     "agent security", "agent authorization", "agent identity",
     "agent timing attack", "interrupt injection", "prompt injection",
-    "adversarial agent", "agent robustness",
-    "privacy", "differential privacy", "federated learning",
+    "adversarial agent", "attack surface", "agent robustness", "jailbreak", "1LM vulnerability"
+    "privacy", "differential privacy", "federated learning", "adversarial",
     "user data", "personal information", "on-device", "local processing",
     "distributed systems", "edge computing", "fog computing",
-    "device to cloud", "sync", "offline first",
-    "audio security", "voice biometric", "speaker verification",
+    "device to cloud", "sync", "offline first", "exploit",
+    "audio security", "voice biometric", "speaker verification", "security incident",
     "adversarial audio", "audio attack", "model poisoning",
 ]
 
@@ -133,10 +133,6 @@ NEWS_SOURCES = [
     {"name": "Vox",                  "url": "https://www.vox.com/rss/index.xml"},
     {"name": "ProPublica",           "url": "https://feeds.propublica.org/main"},
     {"name": "The New York Times",   "url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"},
-    {"name": "Financial Times",      "url": "https://www.ft.com/rss/home"},
-    {"name": "The Economist",        "url": "https://www.economist.com/latest/rss.xml"},
-    {"name": "WSJ World News",       "url": "https://feeds.a.dj.com/rss/RSSWorldNews.xml"},
-    {"name": "Axios",                "url": "https://www.axios.com/feed/"},
 ]
 
 RESEARCH_SOURCES = [
@@ -164,6 +160,8 @@ ML_SOURCES = [
 SECURITY_SOURCES = [
     {"name": "arXiv Security",    "url": "https://arxiv.org/rss/cs.CR"},
     {"name": "AI Alignment Forum","url": "https://www.alignmentforum.org/feed.xml"},
+    {"name": "arXiv AI Safety",             "url": "https://arxiv.org/rss/cs.AI"},  # catches agent papers
+    {"name": "Simon Willison",              "url": "https://simonwillison.net/atom.xml"},
 ]
 
 INDUSTRY_SOURCES = [
